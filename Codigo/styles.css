@@ -328,17 +328,17 @@ button:hover {
   top: 50%;
   transform: translateY(-50%);
   
-  width: 18px;   /* 👈 tamaño del icono */
+  width: 18px;   
   height: 18px;
 }
 
 .input-group input {
-  padding-left: 40px; /* 👈 espacio para el ojo */
+  padding-left: 40px; 
 }
 
 .eye-icon {
   position: absolute;
-  left: 10px;  /* 👈 lo deja dentro del input */
+  left: 10px; 
   top: 50%;
   transform: translateY(-50%);
   
