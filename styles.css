@@ -685,3 +685,10 @@ button:hover {
   border: none;
   cursor: pointer;
 }
+
+.error-msg {
+  color: red;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 10px;
+}
