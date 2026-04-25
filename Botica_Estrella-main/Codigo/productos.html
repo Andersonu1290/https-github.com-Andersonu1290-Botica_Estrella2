@@ -44,46 +44,46 @@
 
     <!-- PRODUCTOS -->
     <section class="catalog-grid product-container" aria-label="Lista de medicamentos">
-      <article class="card catalog-card">
+      <article class="card catalog-card" onclick="verDetalle('paracetamol')">
         <img src="img/paracetamol.png" alt="Paracetamol 120mg/5ml Jarabe" />
         <p>Paracetamol 120mg/5ml Jarabe</p>
         <span>S/. 2.00</span>
-        <button type="button">Agregar al Carrito</button>
+        <button type="button" onclick="event.stopPropagation(); verDetalle('paracetamol')">Agregar al Carrito</button>
       </article>
 
-      <article class="card catalog-card">
+      <article class="card catalog-card" onclick="verDetalle('naproxeno')">
         <img src="img/naproxeno.webp" alt="Naproxeno Sodico 550 Mg Tableta" />
         <p>Naproxeno Sodico 550 Mg Tableta Recubierta</p>
         <span>S/. 4.00</span>
-        <button type="button">Agregar al Carrito</button>
+        <button type="button" onclick="event.stopPropagation(); verDetalle('naproxeno')">Agregar al Carrito</button>
       </article>
 
-      <article class="card catalog-card">
-        <img src="img/clorfenamina.webp" alt="Clorfenamina 4mg Tableta" />
+      <article class="card catalog-card" onclick="verDetalle('clorfenamina')">
+        <img src="img/134310L.jpg" alt="Clorfenamina 4mg Tableta" />
         <p>Clorfenamina 4mg Tableta</p>
         <span>S/. 5.00</span>
-        <button type="button">Agregar al Carrito</button>
+        <button type="button" onclick="event.stopPropagation(); verDetalle('clorfenamina')">Agregar al Carrito</button>
       </article>
 
-      <article class="card catalog-card">
+      <article class="card catalog-card" onclick="verDetalle('prednisona')">
         <img src="img/prednisona.jpg" alt="Prednisona 50 Mg Tableta" />
         <p>Prednisona 50 Mg Tableta</p>
         <span>S/. 10.00</span>
-        <button type="button">Agregar al Carrito</button>
+        <button type="button" onclick="event.stopPropagation(); verDetalle('prednisona')">Agregar al Carrito</button>
       </article>
 
-      <article class="card catalog-card">
+      <article class="card catalog-card" onclick="verDetalle('dexametasona')">
         <img src="img/dexametasona.webp" alt="Dexametasona 4mg Tableta" />
         <p>Dexametasona 4mg Tableta</p>
         <span>S/. 10.00</span>
-        <button type="button">Agregar al Carrito</button>
+        <button type="button" onclick="event.stopPropagation(); verDetalle('dexametasona')">Agregar al Carrito</button>
       </article>
 
-      <article class="card catalog-card">
+      <article class="card catalog-card" onclick="verDetalle('ibuprofeno')">
         <img src="img/ibuprofeno.jpg" alt="Ibuprofeno 800 mg" />
         <p>Ibuprofeno 800 mg</p>
         <span>S/. 15.00</span>
-        <button type="button">Agregar al Carrito</button>
+        <button type="button" onclick="event.stopPropagation(); verDetalle('ibuprofeno')">Agregar al Carrito</button>
       </article>
     </section>
   </main>
@@ -109,6 +109,11 @@
 
     <div class="footer-bottom">© 2026 Botica Estrella+</div>
   </footer>
+  <script>
+    function verDetalle(producto){
+      window.location.href= "detalle.html?producto=" + producto;
+    }
+  </script>
 </body>
 
 </html>
