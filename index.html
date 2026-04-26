@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <title>Botica Estrella</title>
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
   </head>
   <body>
-    <!-- NAVBAR -->
     <header class="navbar">
       <div class="logo">
         <img src="img/Botica.png" alt="Botica Estrella" />
@@ -22,7 +22,7 @@
           <span>Productos</span>
         </a>
 
-        <a href="Perfil.html" class="nav-item">
+        <a href="perfil.html" class="nav-item">
           <span>Perfil</span>
         </a>
 
@@ -33,41 +33,44 @@
       </div>
     </header>
 
-    <!-- CARRUSEL -->
     <section class="carousel">
       <img src="img/delivery.png" class="active" alt="Banner1" />
       <img src="img/anuncio.jpg" alt="Banner2" />
       <img src="img/banner3.jpg" alt="Banner3" />
     </section>
 
-    <!-- CATEGORÍAS -->
     <section class="categories">
       <a href="productos.html" class="cat-btn">Medicamentos</a>
       <a href="#" class="cat-btn">Cuidado Personal</a>
       <a href="#" class="cat-btn">Mamá y Bebé</a>
     </section>
 
-    <!-- PRODUCTOS DESTACADOS -->
     <section class="products">
       <h2>Destacados:</h2>
 
       <div class="product-container">
         <div class="card">
-          <img src="img/paracetamol.png" alt="Paracetamol" />
+          <a href="detalle.html?producto=paracetamol">
+            <img src="img/paracetamol.png" alt="Paracetamol" />
+          </a>
           <p>Paracetamol 120mg/5ml Jarabe</p>
           <span>S/. 2.00</span>
           <button>Agregar al Carrito</button>
         </div>
 
         <div class="card">
-          <img src="img/old_pieces.png" alt="Old Pieces" />
+          <a href="detalle.html?producto=oldSpice">
+            <img src="img/old_pieces.png" alt="Old Pieces" />
+          </a>
           <p>Pack 2 Desodorantes Old Spice</p>
           <span>S/. 31.00</span>
           <button>Agregar al Carrito</button>
         </div>
 
         <div class="card">
-          <img src="img/toallitas.png" alt="Toallitas Húmedas" />
+          <a href="detalle.html?producto=toallitas">
+            <img src="img/toallitas.png" alt="Toallitas Húmedas" />
+          </a>
           <p>Toallitas Húmedas Ninet Plus</p>
           <span>S/. 8.90</span>
           <button>Agregar al Carrito</button>
@@ -75,7 +78,6 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
         <div>
@@ -94,10 +96,9 @@
         </div>
       </div>
 
-      <div class="footer-bottom">© 2026 Botica Estrella+</div>
+      <div class="footer-bottom">© 2026 Botica Estrella</div>
     </footer>
 
-    <!-- MODAL LOGIN -->
     <div id="loginModal" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -124,7 +125,6 @@
       </div>
     </div>
 
-    <!-- MODAL REGISTRO -->
     <div id="registerModal" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -160,40 +160,7 @@
         </p>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 
-    <!-- n8n CHAT -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
-      rel="stylesheet"
-    />
-
-    <script type="module">
-      import { createChat } from "https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js";
-
-      createChat({
-        webhookUrl:
-          "https://n8n-production-7867.up.railway.app/webhook/c3cef601-7dc2-43cf-bddb-3dc0047106cb/chat",
-
-        mode: "window",
-
-        showWelcomeScreen: true,
-
-        initialMessages: [
-          "Hola",
-          "Soy el asistente de Botica Estrella, ¿en qué puedo ayudarte?",
-        ],
-
-        i18n: {
-          en: {
-            title: "Hola",
-            subtitle: "Escríbenos, estamos para ayudarte",
-            getStarted: "Iniciar chat",
-            inputPlaceholder: "Escribe tu mensaje...",
-            footer: "",
-          },
-        },
-      });
-    </script>
   </body>
 </html>
