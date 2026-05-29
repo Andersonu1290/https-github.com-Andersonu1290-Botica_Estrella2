@@ -2,25 +2,25 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import tailwindcss from '@tailwindcss/vite' // 🌟 1. Importamos Tailwind
+import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/Botica_Estrella/', // 🔥 ¡ESTA LÍNEA ES OBLIGATORIA PARA GITHUB PAGES!
   plugins: [
     vue(),
     vueDevTools(),
-    tailwindcss(), // 🌟 2. Agregamos el plugin aquí
+    tailwindcss(),
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-  // 🔥 CONFIGURACIÓN DEL PROXY PARA REDIRIGIR A SPRING BOOT
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8089', // Tu puerto local de Spring Boot
+        target: 'http://localhost:8089', 
         changeOrigin: true,
         secure: false,
       }
