@@ -60,7 +60,7 @@ export default {
   name: 'KardexView',
   mounted() {
     // 1. Inyectamos la variable de entorno para resolver local vs nube en api.js
-    window.VITE_API_URL = import.meta.env.VITE_API_URL;
+    import.meta.env.VITE_API_URL = import.meta.env.VITE_API_URL;
 
     // 2. Carga secuencial y controlada de scripts desde la carpeta public/admin/js/
     this.cargarScript('/admin/js/api.js')

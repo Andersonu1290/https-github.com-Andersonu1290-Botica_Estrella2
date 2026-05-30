@@ -160,7 +160,7 @@ export default {
   name: 'VentaView',
   mounted() {
     // 1. Pasamos la variable de entorno global para api.js (Local vs Nube)
-    window.VITE_API_URL = import.meta.env.VITE_API_URL;
+    import.meta.env.VITE_API_URL = import.meta.env.VITE_API_URL;
 
     // 2. Carga secuencial y ordenada de la lógica de tu punto de venta
     this.cargarScript('/admin/js/api.js')

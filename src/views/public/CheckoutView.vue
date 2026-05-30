@@ -123,7 +123,7 @@ const procesarPago = async () => {
         }
     }
     
-    carritoStore.vaciar();
+    carritoStore.vaciarBD(usuarioActivo.id);
     router.push('/confirmacion'); // Aquí crearemos la página de éxito
   } catch (err) {
     console.error(err);

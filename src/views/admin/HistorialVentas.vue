@@ -59,7 +59,7 @@ export default {
   name: 'HistorialVentasView',
   mounted() {
     // 1. Inyectamos la variable de entorno para que api.js resuelva local vs nube
-    window.VITE_API_URL = import.meta.env.VITE_API_URL;
+    import.meta.env.VITE_API_URL = import.meta.env.VITE_API_URL;
 
     // 2. Carga secuencial y ordenada de la lógica nativa guardada en public/admin/js/
     this.cargarScript('/admin/js/api.js')
