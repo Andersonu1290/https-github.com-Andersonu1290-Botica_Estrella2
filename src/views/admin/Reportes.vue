@@ -118,7 +118,7 @@ export default {
   name: 'ReportesView',
   mounted() {
     // 1. Inyectamos la variable de entorno global para resolver local vs nube en api.js
-    import.meta.env.VITE_API_URL = import.meta.env.VITE_API_URL;
+    window.VITE_API_URL = import.meta.env.VITE_API_URL;
 
     // 2. Carga del CDN de Chart.js y secuencialmente tus capas lógicas de public/admin/js/
     this.cargarScriptExterno('https://cdn.jsdelivr.net/npm/chart.js')

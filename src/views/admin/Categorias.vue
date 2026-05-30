@@ -87,7 +87,7 @@ export default {
   name: 'CategoriasView',
   mounted() {
     // 1. Inyectamos la variable de entorno para la resolución dinámica de la API
-    import.meta.env.VITE_API_URL = import.meta.env.VITE_API_URL;
+    window.VITE_API_URL = import.meta.env.VITE_API_URL;
 
     // 2. Carga secuencial y segura de scripts desde la carpeta public/admin/js/
     this.cargarScript('/admin/js/api.js')

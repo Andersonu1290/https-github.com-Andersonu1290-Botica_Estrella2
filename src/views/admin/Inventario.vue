@@ -143,7 +143,7 @@ export default {
   name: 'InventarioView',
   mounted() {
     // 1. Inyectamos la variable de entorno en memoria global para api.js
-    import.meta.env.VITE_API_URL = import.meta.env.VITE_API_URL;
+    window.VITE_API_URL = import.meta.env.VITE_API_URL;
 
     // 2. Carga secuencial y segura de scripts sin duplicados
     this.cargarScript('/admin/js/api.js')
