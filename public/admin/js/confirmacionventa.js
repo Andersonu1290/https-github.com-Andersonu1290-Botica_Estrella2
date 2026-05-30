@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function () {
     if (!sessionStorage.getItem("usuarioActivo")) {
-        window.location.href = "Login";
+        window.location.href = "login";
         return;
     }
     await renderizarConfirmacionVenta();

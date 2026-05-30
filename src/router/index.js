@@ -51,7 +51,7 @@ const router = createRouter({
       path: '/admin',
       component: AdminLayout,
       children: [
-        { path: '', name: 'login', component: Login },
+        { path: '', name: 'login', component: Login, alias: 'login' },
         { path: 'inventario', name: 'inventario', component: Inventario },
         { path: 'venta', name: 'venta', component: Venta },
         { path: 'categorias', name: 'categorias', component: Categorias },

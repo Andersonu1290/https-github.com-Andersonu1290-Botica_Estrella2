@@ -47,9 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     sessionStorage.setItem('jwt_token', respuesta.token);
                 }
 
-                // Redirección directa a la vista estática del panel de control
-                window.location.href = "Inventario";
-
             } catch (error) {
                 // 3. Manejo de Errores: Captura credenciales incorrectas o caídas del servidor
                 console.error("Error en el proceso de login:", error);

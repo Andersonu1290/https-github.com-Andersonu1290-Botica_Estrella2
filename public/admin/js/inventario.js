@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // 1. Validar sesión (Fase 2: Gestión de Estado)
     const usuarioActivoString = sessionStorage.getItem('usuarioActivo');
     if (!usuarioActivoString) {
-        window.location.href = 'Login';
+        window.location.href = 'login';
         return;
     }
 

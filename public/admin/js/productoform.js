@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async function() {
     // FASE 2: Protección de ruta básica (Verificar autenticación)
     if (!sessionStorage.getItem('usuarioActivo')) {
-        window.location.href = 'Login';
+        window.location.href = 'login';
         return;
     }
 
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
                 // Redirección inmediata tras el éxito a la grilla principal
                 setTimeout(() => {
-                    window.location.href = "Inventario";
+                    window.location.href = "./inventario";
                 }, 1500);
 
             } catch (error) {

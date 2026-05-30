@@ -118,7 +118,7 @@ async function ejecutarMerma(serie) {
 document.addEventListener("DOMContentLoaded", async function() {
     // FASE 2: Protección de ruta (Verifica que el usuario esté logueado)
     if (!sessionStorage.getItem('usuarioActivo')) {
-        window.location.href = 'Login';
+        window.location.href = 'login';
         return;
     }
 

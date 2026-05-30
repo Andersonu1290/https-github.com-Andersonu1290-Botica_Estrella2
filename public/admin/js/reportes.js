@@ -6,7 +6,7 @@ const techPalette = [
 document.addEventListener("DOMContentLoaded", async function() {
     // 1. Verificación de seguridad
     if (!sessionStorage.getItem('usuarioActivo')) {
-        window.location.href = 'Login';
+        window.location.href = 'login';
         return;
     }
 

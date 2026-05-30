@@ -248,7 +248,7 @@ async function procesarVenta(e) {
 document.addEventListener("DOMContentLoaded", async () => {
 
     if (!sessionStorage.getItem("usuarioActivo")) {
-        window.location.href = "Login";
+        window.location.href = "login";
         return;
     }
 

@@ -110,6 +110,6 @@ async function cerrarSesion() {
         // El bloque finally garantiza que la limpieza ocurra siempre, incluso sin red
         sessionStorage.removeItem('usuarioActivo');
         sessionStorage.removeItem('jwt_token');
-        window.location.href = 'Login';
+        window.location.href = 'login';
     }
 }

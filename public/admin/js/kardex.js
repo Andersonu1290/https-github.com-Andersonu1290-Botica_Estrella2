@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     // Protección de ruta local
     if (!sessionStorage.getItem('usuarioActivo')) {
-        window.location.href = 'Login';
+        window.location.href = 'login';
         return;
     }
 

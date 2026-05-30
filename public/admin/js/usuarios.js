@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     // FASE 2: Protección de Ruta básica (Verificar autenticación)
     const usuarioSesion = sessionStorage.getItem('usuarioActivo');
     if (!usuarioSesion) {
-        window.location.href = 'Login';
+        window.location.href = 'login';
         return;
     }
 
