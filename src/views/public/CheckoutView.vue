@@ -88,7 +88,6 @@ const form = reactive({
   metodoPago: 'TARJETA'
 });
 
-// MODIFICA ESTA PARTE EN CheckoutView.vue
 const metodosPago = [
   { id: 'pagoTarjeta', nombre: 'Tarjeta' },
   { id: 'pagoTransferencia', nombre: 'Transferencia' },
@@ -103,40 +102,63 @@ const procesarPago = async () => {
     return;
   }
 
+  // ✅ Sesión real de la tienda
+  const usuarioGuardado = JSON.parse(
+    localStorage.getItem('clienteEstrella')
+  );
+
+  if (!usuarioGuardado || !usuarioGuardado.idUsuario) {
+    alert("Tu sesión ha expirado. Inicia sesión nuevamente.");
+    router.push('/login');
+    return;
+  }
+
   procesando.value = true;
+
   try {
-    // Recorremos el carrito enviando una venta por cada ítem
+
+    // Recorremos el carrito enviando una venta por cada unidad comprada
     for (const item of carritoStore.items) {
-        for (let i = 0; i < item.cantidad; i++) {
-            const payload = {
-                idProducto: item.producto.idProducto,
-                nroSerie: `WEB-${Date.now()}-${i}`,
-                tipoComprobante: form.tipoComprobante,
-                idUsuario: 1, // ID quemado por ahora
-                docCliente: form.docCliente,
-                nombreCliente: form.nombre,
-                correoCliente: "cliente@boticaestrella.com",
-                metodoPago: form.metodoPago,
-                total: item.producto.precio
-            };
-            await apiClient.procesarVenta(payload);
-        }
+
+      for (let i = 0; i < item.cantidad; i++) {
+
+        const payload = {
+          idProducto: item.producto.idProducto,
+          nroSerie: `WEB-${Date.now()}-${i}`,
+          tipoComprobante: form.tipoComprobante,
+
+          // ✅ Usuario real logueado
+          idUsuario: usuarioGuardado.idUsuario,
+
+          docCliente: form.docCliente,
+          nombreCliente: form.nombre,
+          correoCliente: "cliente@boticaestrella.com",
+          metodoPago: form.metodoPago,
+          total: item.producto.precio
+        };
+
+        await apiClient.procesarVenta(payload);
+      }
     }
-    
-    // 1. Sacamos los datos del cliente de la memoria del navegador
-    const usuarioGuardado = JSON.parse(sessionStorage.getItem('usuarioActivo'));
-      
-    // 2. Ahora sí, le pasamos su ID exacto a la función para vaciar su carrito
-    if (usuarioGuardado) {
-        // Nota: dependiendo de cómo esté tu modelo, podría ser .id o .idUsuario
-        carritoStore.vaciarBD(usuarioGuardado.idUsuario); 
-    }
-    router.push('/confirmacion'); // Aquí crearemos la página de éxito
+
+    // ✅ Esperar que el backend vacíe el carrito
+    await carritoStore.vaciarBD(usuarioGuardado.idUsuario);
+
+    router.push('/confirmacion');
+
   } catch (err) {
+
     console.error(err);
-    alert("Error en el pago: " + (err.message || "Intenta de nuevo"));
+
+    alert(
+      "Error en el pago: " +
+      (err.message || "Intenta de nuevo")
+    );
+
   } finally {
+
     procesando.value = false;
+
   }
 };
 </script>

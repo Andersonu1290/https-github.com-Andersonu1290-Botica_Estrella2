@@ -69,10 +69,21 @@ export const carritoStore = reactive({
   // 4. Limpiar todo tras pagar
   async vaciarBD(idUsuario) {
     try {
-      await fetch(`${BASE_URL}/carrito/vaciar/${idUsuario}`, { method: 'DELETE' });
+      const res = await fetch(
+        `${BASE_URL}/carrito/vaciar/${idUsuario}`,
+        {
+          method: 'DELETE'
+        }
+      );
+    
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
+    
       this.items = [];
     } catch (error) {
       console.error("Error vaciando BD:", error);
+      throw error;
     }
   }
 });
