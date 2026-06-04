@@ -1,38 +1,100 @@
-# boticaestrella_frontend
+## 📖 Descripción del Proyecto
 
-This template should help get you started developing with Vue 3 in Vite.
+**Botica Estrella** es una plataforma web dual que combina una **tienda virtual (e-commerce)** para el cliente final y un **panel administrativo (backoffice)** para la gestión interna de la farmacia. El sistema permite realizar compras en línea, visualizar catálogos, y administrar de manera centralizada el inventario, el Kardex, las mermas, los reportes y las ventas físicas.
 
-## Recommended IDE Setup
+Este proyecto ha sido estructurado con una arquitectura modular y escalable, enfocándose en la separación de responsabilidades entre el entorno público y el entorno de administración.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Recommended Browser Setup
+## 🚀 Tecnologías Utilizadas
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+* **Framework:** [Vue 3](https://vuejs.org/) (Composition API)
+* **Build Tool:** [Vite](https://vitejs.dev/)
+* **Enrutamiento:** Vue Router
+* **Estilos:** Tailwind CSS y CSS personalizado.
+* **Gestión de Estado:** Tiendas reactivas modulares (`auth.js`, `carrito.js`, `filtros.js`)
+* **Integración API:** Configuración centralizada vía `apiClient.js`
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 📂 Estructura del Proyecto
 
-## Project Setup
+El proyecto está organizado en las siguientes carpetas principales dentro de `src/`:
 
-```sh
+```text
+📦 src
+ ┣ 📂 assets          # Estilos globales y Tailwind (tailwind.css)
+ ┣ 📂 components      # Componentes reutilizables (públicos y privados)
+ ┣ 📂 layouts         # Plantillas base (AdminLayout.vue, PublicLayout.vue)
+ ┣ 📂 router          # Definición de rutas de la aplicación
+ ┣ 📂 services        # Cliente para peticiones HTTP (apiClient.js)
+ ┣ 📂 store           # Estado global (auth, carrito, filtros)
+ ┣ 📂 views
+ ┃ ┣ 📂 admin         # Vistas del Backoffice (Kardex, Inventario, Reportes, etc.)
+ ┃ ┗ 📂 public        # Vistas del E-commerce (Catálogo, Checkout, Perfil, etc.)
+ ┣ 📜 App.vue         # Componente raíz
+ ┗ 📜 main.js         # Punto de entrada de la aplicación
+
+```
+
+---
+
+## 🛠️ Instalación y Configuración Local
+
+Sigue estos pasos para ejecutar el proyecto en tu entorno local:
+
+1. **Clonar el repositorio:**
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd Botica_Estrella
+
+```
+
+
+2. **Instalar las dependencias:**
+```bash
 npm install
+
 ```
 
-### Compile and Hot-Reload for Development
 
-```sh
+3. **Configurar variables de entorno:**
+Revisa los archivos `.env.development` y `.env.production` en la raíz del proyecto para asegurar que las variables y endpoints de la API backend estén correctamente direccionados.
+4. **Levantar el servidor de desarrollo:**
+```bash
 npm run dev
+
 ```
 
-### Compile and Minify for Production
 
-```sh
+*El servidor se iniciará generalmente en `http://localhost:5173/`.*
+5. **Construir para producción:**
+```bash
 npm run build
+
 ```
+
+
+
+---
+
+## 🔑 Funcionalidades Principales
+
+### Entorno Público (E-commerce)
+
+* **Catálogo de Productos:** Exploración y filtrado interactivo de medicamentos y productos.
+* **Carrito de Compras:** Gestión reactiva del estado del carrito.
+* **Checkout:** Flujo de confirmación de venta y detalle de pedido.
+* **Autenticación:** Login público y gestión de perfil de usuario.
+
+### Panel de Administración (Backoffice)
+
+* **Punto de Venta (POS):** Módulo ágil para registrar transacciones físicas en mostrador.
+* **Gestión de Inventario y Kardex:** Control detallado de entradas, salidas y existencias.
+* **Control de Mermas:** Registro de productos defectuosos o vencidos.
+* **Reportes:** Historial de ventas y analíticas del negocio.
+* **Administración:** Gestión de usuarios y categorías.
+
+---
+
+> Proyecto desarrollado priorizando buenas prácticas, limpieza de código y un correcto control de versionado.
