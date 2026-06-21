@@ -1,0 +1,43 @@
+name: CI/CD Pipeline - Netlify
+
+# SOLO se ejecuta cuando se hace push o merge a la rama principal
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v4
+
+      # ----------------------------------------------------
+      # CI: INTEGRACIÓN CONTINUA
+      # ----------------------------------------------------
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Construir el proyecto (Build)
+        run: npm run build
+
+      # ----------------------------------------------------
+      # CD: DESPLIEGUE CONTINUO EN NETLIFY (PRODUCCIÓN)
+      # ----------------------------------------------------
+      - name: Desplegar a Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: './dist' 
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Despliegue a producción desde GitHub Actions"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
